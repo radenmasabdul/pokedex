@@ -1,10 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit"
-
-const dummyReducer = (state = {}) => state;
+import pokemonReducer from "@/features/pokemon/store/pokemonSlice"
 
 export const store = configureStore({
     reducer: {
-        app: dummyReducer,
+        pokemon: pokemonReducer,
     }
 })
 
