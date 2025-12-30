@@ -1,73 +1,135 @@
-# React + TypeScript + Vite
+<div align="center">
+  
+# 🔴 Pokédex 
+# Discover your favorite Pokémon in a modern web app.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+</div>
 
-Currently, two official plugins are available:
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="50" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="50" />
+  <img src="https://raw.githubusercontent.com/radenmasabdul/logo/refs/heads/main/vite.svg" width="50" />
+  <img src="https://raw.githubusercontent.com/radenmasabdul/logo/refs/heads/main/tailwindcss.svg" width="50" />
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Project Overview
 
-## React Compiler
+This project is a modern and responsive **Pokédex web application** developed as part of a **Frontend Developer Technical Test** at **Labamu**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The application consumes data from the public **PokéAPI**, implements **search**, **infinite scroll**, **loading skeletons**, and **error handling**, while maintaining clean UI and good performance across devices.
 
-## Expanding the ESLint configuration
+## 🛠️ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Responsive Design:** Fully optimized for mobile, tablet, and desktop screens.
+- **Pokémon List & Detail View:** Browse Pokémon list and view detailed information including stats, types, height, and weight.
+- **Search Pokémon:** Search Pokémon by name with loading state and empty result handling.
+- **Infinite Scroll:** Load Pokémon progressively using lazy loading for better performance.
+- **Skeleton Loading:** Smooth skeleton placeholders during data fetching and search process.
+- **Error Handling:** Graceful error messages when API requests fail.
+- **Modern UI:** Clean layout built with Tailwind CSS and reusable UI components (shadcn/ui).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ⚙️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **React 19** – Main library for building user interfaces
+- **TypeScript** – Static typing for safer and more maintainable code
+- **Vite** – Fast build tool and development server
+- **Tailwind CSS** – Utility-first CSS framework for rapid UI development
+- **shadcn/ui** – Reusable and accessible UI components
+- **Radix UI** – Accessible primitives used by shadcn/ui
+- **React Router** - Client-side routing
+- **Lucide React** – Icon library
+- **Redux Toolkit** – State management
+- **Axios** – HTTP client for API requests
+- **PokéAPI** – Public API for Pokémon data
+- **Deployment:** Vercel
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 Setup / Installation
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/radenmasabdul/pokedex.git
+cd pokedex
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. **Install dependencies**
 ```
+npm install
+```
+
+3. **Create .env file**
+```
+VITE_API_BASE_URL=your_base_url
+```
+
+4. **Run the development server**
+```
+npm run dev
+```
+
+5. **Open to view in browser**
+```
+http://localhost:5173
+```
+
+## 📦 Build & Deployment
+
+1. **Build for production**
+```
+npm run build
+```
+
+2. **Preview production build**
+```
+npm run preview
+```
+
+## 📁 Project Structure
+
+```
+public/                           # Static public assets
+src/                              # Application source code
+├── app/                          # App-level configuration & setup
+├── assets/                       # Images, icons, and static assets
+├── components/                   # Reusable shared components
+│   ├── components/               # Global custom components (Skeleton, etc.)
+│   ├── ui                        # Shadcn UI components
+├── features/                     # Feature-based modules
+│   ├── pokemon/                  # Pokémon feature module
+│   │   ├── components/           # Feature-specific components
+│   │   ├── hooks/                # Custom hooks
+│   │   ├── pages/                # Feature pages
+│   │   ├── services/             # API services
+│   │   ├── store/                # Feature state management
+│   │   ├── types/                # TypeScript types & mappers
+├── lib/                          # Utility helpers & shared logic
+├── pages/                        # App-level pages
+├── routes/                       # Routing config
+├── store/                        # Global state
+├── styles/                       # Global styles & Tailwind config
+├── main.tsx                      # Application entry point
+.env                              # Environment variables
+.env.example                      # Environment variable template
+.gitignore                        # Git ignored files
+components.json                   # Shadcn UI configuration
+eslint.config.js                  # ESLint configuration
+index.html                        # HTML entry
+package-lock.json                 # Dependency lock file
+package.json                      # Project dependencies & scripts
+README.md                         # Project documentation
+tsconfig.app.json                 # TypeScript app config
+tsconfig.json                     # Base TypeScript config
+tsconfig.node.json                # Node-specific TS config
+vite.config.ts                    # Vite configuration
+```
+
+## 📱 Browser Support
+
+This application supports all modern browsers that support ES2015+.
+
+## 📄 License
+
+This project is private and not licensed for public use.
+
+## 🌐 Live Demo
+
+Check out the live application: https://pokedex-chi-three-25.vercel.app/
